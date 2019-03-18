@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeCheckInApp.Models.Employee_Timesheet>
+@{
+    ViewBag.Title = "Employee Check-in";
+}
+
+<div class="jumbotron">
+    <h1>Employee Check-in</h1>
+    <p class="lead">This is a test application created for Binary Logic</p>
+    <p><a href="http://www.binarylogic.net/" class="btn btn-primary btn-lg">Visit their page &raquo;</a></p>
+</div>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+
+    <label>Insert employee code</label>
+    @Html.TextBox("code")
+    <input type="submit" value="Submit" />
+}
+
+<h2>Check-in List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entrance_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exit_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(model => item.id)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entrance_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exit_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Id)
+            </td>
+        </tr>
+    }
+
+</table>

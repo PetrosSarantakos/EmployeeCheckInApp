@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EmployeeCheckInApp.Models.Employee_Timesheet>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Entrance_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exit_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Automatic_Entrance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Automatic_Exit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Id_Entrance_Commit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_id_Exit_Commit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entrance_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exit_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Automatic_Entrance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Automatic_Exit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_Id_Entrance_Commit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_id_Exit_Commit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
